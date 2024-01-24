@@ -1,0 +1,36 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+body {
+  background-color: #b8b8b8;
+}
+
+.app-wrapper {
+  display: grid;
+  grid-template-areas:
+    "h h"
+    "n c";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  gap: 10px;
+}
+
+.header {
+  grid-area: h;
+}
+
+.nav {
+  grid-area: n;
+}
+
+.content {
+  grid-area: c;
+}
+
+.content-img {
+  max-height: 200px;
+  width: 100%;
+}
