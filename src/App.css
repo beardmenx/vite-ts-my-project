@@ -17,20 +17,3 @@ body {
   grid-template-columns: 2fr 10fr;
   gap: 10px;
 }
-
-.header {
-  grid-area: h;
-}
-
-.nav {
-  grid-area: n;
-}
-
-.content {
-  grid-area: c;
-}
-
-.content-img {
-  max-height: 200px;
-  width: 100%;
-}

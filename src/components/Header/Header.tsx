@@ -1,9 +1,10 @@
 import Logo from "../../assets/logo.svg";
+import s from "./Header.module.css";
 export type HeaderProps = {};
 
 export const Header: HeaderProps = () => {
   return (
-    <header className="header">
+    <header className={s.header}>
       <img src={Logo} alt="" />
     </header>
   );

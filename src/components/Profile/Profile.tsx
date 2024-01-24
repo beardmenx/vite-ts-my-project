@@ -1,20 +1,17 @@
 import ContentImg from "../../assets/content-img.gif";
+import { MyPosts } from "./MyPosts/MyPosts";
+import s from "./Profile.module.css";
 
 export type ProfileProps = {};
 
 export const Profile: ProfileProps = () => {
   return (
-    <div className="content">
+    <div className={s.content}>
       <div>
-        <img className="content-img" src={ContentImg} alt="" />
+        <img className={s.contentImg} src={ContentImg} alt="" />
       </div>
       <div>ava + description</div>
-      <div>
-        My Posts
-        <div>New post</div>
-        <div>post 1</div>
-        <div>post 2</div>
-      </div>
+      <MyPosts />
     </div>
   );
 };
