@@ -17,3 +17,7 @@ body {
   grid-template-columns: 2fr 10fr;
   gap: 10px;
 }
+
+.app-wrapper-content {
+  grid-area: c;
+}

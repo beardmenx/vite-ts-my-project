@@ -6,13 +6,16 @@ export type MyPostsProps = {};
 export const MyPosts: MyPostsProps = () => {
   return (
     <div>
-      My Posts
+      <h3> My Posts</h3>
       <div>
-        <textarea></textarea>
-        <button>add post</button>
+        <div>
+          <textarea></textarea>
+        </div>
+
+        <button className={s.button}>add post</button>
       </div>
-      <Post />
-      <Post />
+      <Post message="Hi, How are u?" />
+      <Post message="This is my new post" />
     </div>
   );
 };
