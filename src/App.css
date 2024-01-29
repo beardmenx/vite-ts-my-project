@@ -2,6 +2,10 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  font-family: "VT323", monospace;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
 }
 
 body {
@@ -20,4 +24,13 @@ body {
 
 .app-wrapper-content {
   grid-area: c;
+}
+
+button {
+  padding: 20px;
+  border-radius: 1px;
+  background: var(--Gray, #b8b8b8);
+  box-shadow:
+    -2px -2px 1px 0px rgba(0, 0, 0, 0.8) inset,
+    2px 2px 1px 0px rgba(255, 255, 255, 0.5) inset;
 }

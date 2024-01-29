@@ -7,6 +7,20 @@
   width: 100%;
 }
 
-.item {
-  color: rgb(218, 35, 169);
+.post {
+  padding: 10px;
+  display: flex;
+  border: 1px solid black;
+  width: 500px;
+  min-height: 160px;
+  margin-bottom: 20px;
+}
+
+.postText {
+  width: 360px;
+  margin-bottom: 20px;
+}
+
+.postNickname {
+  color: #797979;
 }

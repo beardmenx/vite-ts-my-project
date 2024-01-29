@@ -1,5 +1,57 @@
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="like">
-<path id="Union" fill-rule="evenodd" clip-rule="evenodd" d="M7.54545 2H4.27273V3.63636H2.63636V5.27273H1V10.1818H2.63636V11.8182H4.27273V13.4545H5.90909V15.0909H7.54545V16.7273H9.18182V18.3636H10.8182V16.7273H12.4545V15.0909H14.0909V13.4545L15.7273 13.4545V11.8182H17.3636V10.1818H19V5.27273H17.3636V3.63636H15.7273V2H12.4545V3.63636H10.8182V5.27273H9.18182V3.63636H7.54545V2ZM7.54545 3.63636V5.27273H9.18182V6.90909H10.8182V5.27273H12.4545L12.4545 3.63636H15.7273L15.7273 5.27273H17.3636V10.1818H15.7273V11.8182H14.0909V13.4545H12.4545L12.4545 15.0909H10.8182V16.7273H9.18182V15.0909H7.54545V13.4545L5.90909 13.4545V11.8182H4.27273V10.1818H2.63636V5.27273H4.27273V3.63636H7.54545Z" fill="black"/>
-</g>
+<svg width="20" height="20" viewBox="0 0 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="144" width="16" height="16" fill="#1E1E1E"/>
+<rect y="160" width="16" height="16" fill="#1E1E1E"/>
+<rect y="176" width="16" height="16" fill="#1E1E1E"/>
+<rect y="192" width="16" height="16" fill="#1E1E1E"/>
+<rect x="15" y="192" width="16" height="16" fill="#1E1E1E"/>
+<rect x="32" y="208" width="16" height="16" fill="#1E1E1E"/>
+<rect x="128" width="16" height="16" fill="#1E1E1E"/>
+<rect x="96" y="16" width="16" height="16" fill="#1E1E1E"/>
+<rect x="80" y="32" width="16" height="16" fill="#1E1E1E"/>
+<rect x="129" y="176" width="16" height="16" fill="#1E1E1E"/>
+<rect x="144" y="144" width="16" height="16" fill="#1E1E1E"/>
+<rect x="160" y="112" width="16" height="16" fill="#1E1E1E"/>
+<rect x="160" y="80" width="16" height="16" fill="#1E1E1E"/>
+<rect x="144" y="112" width="16" height="16" fill="#1E1E1E"/>
+<rect x="144" y="80" width="16" height="16" fill="#1E1E1E"/>
+<rect x="128" y="80" width="16" height="16" fill="#1E1E1E"/>
+<rect x="112" y="64" width="16" height="16" fill="#1E1E1E"/>
+<rect x="112" width="16" height="16" fill="#1E1E1E"/>
+<rect x="128" y="16" width="16" height="16" fill="#1E1E1E"/>
+<rect x="128" y="32" width="16" height="16" fill="#1E1E1E"/>
+<rect x="112" y="48" width="16" height="16" fill="#1E1E1E"/>
+<rect x="96" y="80" width="16" height="16" fill="#1E1E1E"/>
+<rect x="80" y="80" width="16" height="16" fill="#1E1E1E"/>
+<rect x="145" y="176" width="16" height="16" fill="#1E1E1E"/>
+<rect x="160" y="144" width="16" height="16" fill="#1E1E1E"/>
+<rect x="176" y="112" width="16" height="16" fill="#1E1E1E"/>
+<rect x="176" y="80" width="16" height="16" fill="#1E1E1E"/>
+<rect x="161" y="176" width="16" height="16" fill="#1E1E1E"/>
+<rect x="176" y="144" width="16" height="16" fill="#1E1E1E"/>
+<rect x="192" y="112" width="16" height="16" fill="#1E1E1E"/>
+<rect x="192" y="80" width="16" height="16" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 96 208)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 112 208)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 128 208)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 144 208)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 160 208)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 176 208)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 192 192)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 208 160)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 224 128)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 224 96)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 192 176)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 208 144)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 224 112)" fill="#1E1E1E"/>
+<rect width="16" height="16" transform="matrix(-1 0 0 1 224 80)" fill="#1E1E1E"/>
+<rect x="64" y="208" width="16" height="16" fill="#1E1E1E"/>
+<rect x="48" y="208" width="16" height="16" fill="#1E1E1E"/>
+<rect x="64" y="48" width="16" height="16" fill="#1E1E1E"/>
+<rect x="64" y="64" width="16" height="16" fill="#1E1E1E"/>
+<rect y="128" width="16" height="16" fill="#1E1E1E"/>
+<rect y="112" width="16" height="16" fill="#1E1E1E"/>
+<rect x="48" y="64" width="16" height="16" fill="#1E1E1E"/>
+<rect x="32" y="80" width="16" height="16" fill="#1E1E1E"/>
+<rect x="16" y="96" width="16" height="16" fill="#1E1E1E"/>
+<rect y="96" width="16" height="16" fill="#1E1E1E"/>
 </svg>

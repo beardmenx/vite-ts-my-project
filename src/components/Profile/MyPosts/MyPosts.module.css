@@ -1,7 +1,32 @@
-.button {
-  padding: 9px;
-  margin: 10px 0 20px 130px;
+.postBtnWrapper {
+  display: flex;
+  justify-content: space-between;
+}
 
+.postInner {
+  display: flex;
+  border: 1px solid black;
+  width: 500px;
+  min-height: 160px;
+  margin-bottom: 20px;
+}
+
+.userAvatar {
+  padding: 10px 20px 0 10px;
+}
+
+.postTextarea {
+  border: none;
+  outline: none;
+  width: 400px;
+  height: 90px;
+  background-color: transparent;
+  border-bottom: 1px solid black;
+  color: #797979;
+}
+
+.btn {
+  padding: 0 10px;
   border-radius: 1px;
   background: var(--Gray, #b8b8b8);
   box-shadow:
@@ -9,7 +34,7 @@
     2px 2px 1px 0px rgba(255, 255, 255, 0.5) inset;
 }
 
-.button:hover {
+.btn:hover {
   border-radius: 1px;
   background: var(--Light-Gray, #e1e1e1);
   box-shadow:
