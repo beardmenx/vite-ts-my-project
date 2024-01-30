@@ -22,26 +22,26 @@ export type TodoPropsType = {
 
 export const Todo = (props: TodoPropsType) => {
   const [title, setTitle] = useState("");
+  const [error, setError] = useState<string | null>(null);
+
   const onNewTitleChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.currentTarget.value);
   };
 
   const onKeyUpHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (title.trim() === "") {
-      return;
-    }
+    setError(null);
     if (e.key === "Enter") {
-      props.addTask(title);
-      setTitle("");
+      addTask();
     }
   };
 
   const addTask = () => {
-    if (title.trim() === "") {
-      return;
+    if (title.trim() !== "") {
+      props.addTask(title.trim());
+      setTitle("");
+    } else {
+      setError("Field is not required");
     }
-    props.addTask(title);
-    setTitle("");
   };
 
   const onAllClickHandler = () => props.changeFilter("all");
@@ -55,7 +55,7 @@ export const Todo = (props: TodoPropsType) => {
       <h3 className="text-center">{props.title}</h3>
       <div className="mb-6">
         <input
-          className="pr-4"
+          className={error ? "error" : ""}
           value={title}
           onChange={onNewTitleChangeHandler}
           onKeyUp={onKeyUpHandler}
@@ -63,6 +63,7 @@ export const Todo = (props: TodoPropsType) => {
         <button className="pl-3 pr-3" onClick={addTask}>
           +
         </button>
+        {error && <div className="errorMessage">{error}</div>}
       </div>
       <ul>
         {props.tasks.map((t) => {
