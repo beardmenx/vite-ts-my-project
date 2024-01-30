@@ -21,22 +21,27 @@ export type TodoPropsType = {
 };
 
 export const Todo = (props: TodoPropsType) => {
-  const [newTaskTitle, setNewTasksTitle] = useState("");
-
+  const [title, setTitle] = useState("");
   const onNewTitleChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setNewTasksTitle(e.currentTarget.value);
+    setTitle(e.currentTarget.value);
   };
 
   const onKeyUpHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (title.trim() === "") {
+      return;
+    }
     if (e.key === "Enter") {
-      props.addTask(newTaskTitle);
-      setNewTasksTitle("");
+      props.addTask(title);
+      setTitle("");
     }
   };
 
   const addTask = () => {
-    props.addTask(newTaskTitle);
-    setNewTasksTitle("");
+    if (title.trim() === "") {
+      return;
+    }
+    props.addTask(title);
+    setTitle("");
   };
 
   const onAllClickHandler = () => props.changeFilter("all");
@@ -51,7 +56,7 @@ export const Todo = (props: TodoPropsType) => {
       <div className="mb-6">
         <input
           className="pr-4"
-          value={newTaskTitle}
+          value={title}
           onChange={onNewTitleChangeHandler}
           onKeyUp={onKeyUpHandler}
         />
