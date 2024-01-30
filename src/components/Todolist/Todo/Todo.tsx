@@ -1,5 +1,11 @@
+import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { FilterValuesType } from "../Todolist";
+import s from "./Todo.module.css";
+import Trash from "../../../assets/trash.svg";
+import { Button } from "../../Button/Button";
+
 export type TaskType = {
-  id: number;
+  id: string;
   title: string;
   isDone: boolean;
 };
@@ -8,34 +14,86 @@ export type TodoPropsType = {
   title: string;
   tasks: Array<TaskType>;
   //   tasks: TaskType[] === tasks: Array<TaskType> одинаковая запись !!
+  removeTasks: (id: string) => void;
+  changeFilter: (value: FilterValuesType) => void;
+  addTask: (title: string) => void;
+  changeTaskStatus: (taskId: string, isDone: boolean) => void;
 };
 
 export const Todo = (props: TodoPropsType) => {
+  const [newTaskTitle, setNewTasksTitle] = useState("");
+
+  const onNewTitleChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setNewTasksTitle(e.currentTarget.value);
+  };
+
+  const onKeyUpHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      props.addTask(newTaskTitle);
+      setNewTasksTitle("");
+    }
+  };
+
+  const addTask = () => {
+    props.addTask(newTaskTitle);
+    setNewTasksTitle("");
+  };
+
+  const onAllClickHandler = () => props.changeFilter("all");
+
+  const onActiveClickHandler = () => props.changeFilter("active");
+
+  const onCompletedClickHandler = () => props.changeFilter("completed");
+
   return (
-    <div>
+    <div className={s.todo}>
       <h3 className="text-center">{props.title}</h3>
-      <div>
-        <input type="text" />
-        <button className="pl-3 pr-3">+</button>
+      <div className="mb-6">
+        <input
+          className="pr-4"
+          value={newTaskTitle}
+          onChange={onNewTitleChangeHandler}
+          onKeyUp={onKeyUpHandler}
+        />
+        <button className="pl-3 pr-3" onClick={addTask}>
+          +
+        </button>
       </div>
       <ul>
-        <li>
-          <input type="checkbox" checked={props.tasks[0].isDone} />
-          <span>{props.tasks[0].title}</span>
-        </li>
-        <li>
-          <input type="checkbox" checked={props.tasks[1].isDone} />
-          <span>{props.tasks[1].title}</span>
-        </li>
-        <li>
-          <input type="checkbox" checked={props.tasks[2].isDone} />
-          <span>{props.tasks[2].title}</span>
-        </li>
+        {props.tasks.map((t) => {
+          const onRemoveHandler = () => {
+            props.removeTasks(t.id);
+          };
+
+          const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+            props.changeTaskStatus(t.id, e.currentTarget.checked);
+          };
+
+          return (
+            <li className="mb-3" key={t.id}>
+              <input
+                type="checkbox"
+                checked={t.isDone}
+                onChange={onChangeHandler}
+              />
+              <span>{t.title}</span>
+              <button className="ml-4" onClick={onRemoveHandler}>
+                <Button img={Trash} />
+              </button>
+            </li>
+          );
+        })}
       </ul>
-      <div className="flex justify-around">
-        <button className="pl-2 pr-2">All</button>
-        <button className="pl-2 pr-2">Active</button>
-        <button className="pl-2 pr-2">Completed</button>
+      <div className="flex justify-around mt-4">
+        <button className="pl-2 pr-2" onClick={onAllClickHandler}>
+          All
+        </button>
+        <button className="pl-2 pr-2" onClick={onActiveClickHandler}>
+          Active
+        </button>
+        <button className="pl-2 pr-2" onClick={onCompletedClickHandler}>
+          Completed
+        </button>
       </div>
     </div>
   );
