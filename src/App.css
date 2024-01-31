@@ -41,3 +41,7 @@ button {
 .errorMessage {
   color: red;
 }
+
+.activeBtn {
+  background-color: aquamarine;
+}

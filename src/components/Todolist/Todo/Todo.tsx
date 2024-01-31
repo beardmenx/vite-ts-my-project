@@ -18,6 +18,7 @@ export type TodoPropsType = {
   changeFilter: (value: FilterValuesType) => void;
   addTask: (title: string) => void;
   changeTaskStatus: (taskId: string, isDone: boolean) => void;
+  filter: FilterValuesType;
 };
 
 export const Todo = (props: TodoPropsType) => {
@@ -91,13 +92,28 @@ export const Todo = (props: TodoPropsType) => {
         })}
       </ul>
       <div className="flex justify-around mt-4">
-        <button className="pl-2 pr-2" onClick={onAllClickHandler}>
+        <button
+          className={
+            props.filter === "all" ? "activeBtn pl-2 pr-2" : " pl-2 pr-2"
+          }
+          onClick={onAllClickHandler}
+        >
           All
         </button>
-        <button className="pl-2 pr-2" onClick={onActiveClickHandler}>
+        <button
+          className={
+            props.filter === "active" ? "activeBtn pl-2 pr-2" : " pl-2 pr-2"
+          }
+          onClick={onActiveClickHandler}
+        >
           Active
         </button>
-        <button className="pl-2 pr-2" onClick={onCompletedClickHandler}>
+        <button
+          className={
+            props.filter === "completed" ? "activeBtn pl-2 pr-2" : " pl-2 pr-2"
+          }
+          onClick={onCompletedClickHandler}
+        >
           Completed
         </button>
       </div>
