@@ -77,7 +77,7 @@ export const Todo = (props: TodoPropsType) => {
           };
 
           return (
-            <li className="mb-3" key={t.id}>
+            <li className={t.isDone ? "isDone mb-3" : "mb-3"} key={t.id}>
               <input
                 type="checkbox"
                 checked={t.isDone}
