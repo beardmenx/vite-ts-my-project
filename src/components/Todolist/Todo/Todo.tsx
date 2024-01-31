@@ -1,6 +1,5 @@
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { FilterValuesType } from "../Todolist";
-import s from "./Todo.module.css";
 import Trash from "../../../assets/trash.svg";
 import { Button } from "../../Button/Button";
 
@@ -11,14 +10,20 @@ export type TaskType = {
 };
 
 export type TodoPropsType = {
+  id: string;
   title: string;
   tasks: Array<TaskType>;
   //   tasks: TaskType[] === tasks: Array<TaskType> одинаковая запись !!
-  removeTasks: (id: string) => void;
-  changeFilter: (value: FilterValuesType) => void;
-  addTask: (title: string) => void;
-  changeTaskStatus: (taskId: string, isDone: boolean) => void;
+  removeTasks: (id: string, todolistId: string) => void;
+  changeFilter: (value: FilterValuesType, todolistId: string) => void;
+  addTask: (title: string, todolistId: string) => void;
+  changeTaskStatus: (
+    taskId: string,
+    isDone: boolean,
+    todolistId: string
+  ) => void;
   filter: FilterValuesType;
+  removeTodo: (todolistId: string) => void;
 };
 
 export const Todo = (props: TodoPropsType) => {
@@ -38,22 +43,32 @@ export const Todo = (props: TodoPropsType) => {
 
   const addTask = () => {
     if (title.trim() !== "") {
-      props.addTask(title.trim());
+      props.addTask(title.trim(), props.id);
       setTitle("");
     } else {
       setError("Field is not required");
     }
   };
 
-  const onAllClickHandler = () => props.changeFilter("all");
+  const removeTodo = () => {
+    props.removeTodo(props.id);
+  };
 
-  const onActiveClickHandler = () => props.changeFilter("active");
+  const onAllClickHandler = () => props.changeFilter("all", props.id);
 
-  const onCompletedClickHandler = () => props.changeFilter("completed");
+  const onActiveClickHandler = () => props.changeFilter("active", props.id);
+
+  const onCompletedClickHandler = () =>
+    props.changeFilter("completed", props.id);
 
   return (
-    <div className={s.todo}>
-      <h3 className="text-center">{props.title}</h3>
+    <div className="todo">
+      <h3 className="text-center">
+        {props.title}
+        <button className="pl-2 pr-2" onClick={removeTodo}>
+          X
+        </button>
+      </h3>
       <div className="mb-6">
         <input
           className={error ? "error" : ""}
@@ -69,11 +84,11 @@ export const Todo = (props: TodoPropsType) => {
       <ul>
         {props.tasks.map((t) => {
           const onRemoveHandler = () => {
-            props.removeTasks(t.id);
+            props.removeTasks(t.id, props.id);
           };
 
           const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-            props.changeTaskStatus(t.id, e.currentTarget.checked);
+            props.changeTaskStatus(t.id, e.currentTarget.checked, props.id);
           };
 
           return (
