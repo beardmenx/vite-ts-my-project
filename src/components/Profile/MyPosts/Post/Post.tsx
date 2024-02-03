@@ -8,6 +8,7 @@ import { Button } from "../../../Button/Button";
 
 export type PostProps = {
   message: string;
+  likesCount: number;
 };
 
 export const Post = (props: PostProps) => {
@@ -28,6 +29,7 @@ export const Post = (props: PostProps) => {
         pb-2"
         >
           <Button img={Like} />
+          <span>{props.likesCount}</span>
           <Button img={Dislike} />
           <Button img={Comment} />
           <Button img={Share} />

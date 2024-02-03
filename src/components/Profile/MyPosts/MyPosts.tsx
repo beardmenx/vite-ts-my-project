@@ -4,10 +4,26 @@ import { Post } from "./Post/Post";
 import Location from "../../../assets/location.svg";
 import Time from "../../../assets/time.svg";
 import User from "../../../assets/userPhoto.png";
+import { v1 } from "uuid";
 
 export type MyPostsProps = {};
 
 export const MyPosts: MyPostsProps = () => {
+  let postData = [
+    {
+      id: v1(),
+      message:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet habitant mollis adipiscing pretium scelerisque urna euismod nec nullam.",
+      likesCount: 12,
+    },
+    {
+      id: v1(),
+      message:
+        "Amet habitant mollis adipiscing pretium scelerisque urna euismod nec nullam.",
+      likesCount: 24,
+    },
+  ];
+
   return (
     <>
       <div className={s.postsWapper}>
@@ -37,8 +53,14 @@ export const MyPosts: MyPostsProps = () => {
           </div>
         </div>
 
-        <Post message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet habitant mollis adipiscing pretium scelerisque urna euismod nec nullam." />
-        <Post message="Amet habitant mollis adipiscing pretium scelerisque urna euismod nec nullam." />
+        <Post
+          message={postData[0].message}
+          likesCount={postData[0].likesCount}
+        />
+        <Post
+          message={postData[1].message}
+          likesCount={postData[1].likesCount}
+        />
       </div>
     </>
   );
