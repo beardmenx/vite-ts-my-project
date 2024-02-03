@@ -9,7 +9,7 @@ import { v1 } from "uuid";
 export type MyPostsProps = {};
 
 export const MyPosts: MyPostsProps = () => {
-  let postData = [
+  let posts = [
     {
       id: v1(),
       message:
@@ -53,14 +53,9 @@ export const MyPosts: MyPostsProps = () => {
           </div>
         </div>
 
-        <Post
-          message={postData[0].message}
-          likesCount={postData[0].likesCount}
-        />
-        <Post
-          message={postData[1].message}
-          likesCount={postData[1].likesCount}
-        />
+        {posts.map((p) => (
+          <Post message={p.message} likesCount={p.likesCount} />
+        ))}
       </div>
     </>
   );
