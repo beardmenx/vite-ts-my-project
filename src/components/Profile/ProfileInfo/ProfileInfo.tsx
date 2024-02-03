@@ -3,7 +3,7 @@ import s from "./ProfileInfo.module.css";
 
 export type ProfileInfoProps = {};
 
-export const ProfileInfo: ProfileInfoProps = () => {
+export const ProfileInfo = () => {
   return (
     <>
       <div>

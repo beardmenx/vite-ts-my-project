@@ -1,5 +1,5 @@
 export type SettingsProps = {};
 
-export const Settings: SettingsProps = () => {
+export const Settings = () => {
   return <div>Settings</div>;
 };

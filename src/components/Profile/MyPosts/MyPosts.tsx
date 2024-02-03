@@ -8,7 +8,7 @@ import { v1 } from "uuid";
 
 export type MyPostsProps = {};
 
-export const MyPosts: MyPostsProps = () => {
+export const MyPosts = () => {
   let posts = [
     {
       id: v1(),

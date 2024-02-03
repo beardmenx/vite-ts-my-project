@@ -4,7 +4,7 @@ import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
 
 export type ProfileProps = {};
 
-export const Profile: ProfileProps = () => {
+export const Profile = () => {
   return (
     <>
       <ProfileInfo />
