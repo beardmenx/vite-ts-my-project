@@ -24,3 +24,7 @@
 .postNickname {
   color: #797979;
 }
+
+button img {
+  padding: 14px;
+}

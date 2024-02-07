@@ -1,7 +1,6 @@
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { FilterValuesType } from "../Todolist";
 import Trash from "../../../assets/trash.svg";
-import { Button } from "../../Button/Button";
 
 export type TaskType = {
   id: string;
@@ -100,7 +99,7 @@ export const Todo = (props: TodoPropsType) => {
               />
               <span>{t.title}</span>
               <button className="ml-4" onClick={onRemoveHandler}>
-                <Button img={Trash} />
+                <img src={Trash} alt="" />
               </button>
             </li>
           );

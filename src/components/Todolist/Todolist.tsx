@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TaskType, Todo } from "./Todo/Todo";
+import { Todo } from "./Todo/Todo";
 import { v1 } from "uuid";
 
 export type FilterValuesType = "all" | "active" | "completed";
