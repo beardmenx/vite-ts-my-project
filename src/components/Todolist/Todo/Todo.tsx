@@ -2,6 +2,7 @@ import { ChangeEvent } from "react";
 import { FilterValuesType } from "../Todolist";
 import Trash from "../../../assets/trash.svg";
 import { AddItemForm } from "./AddItemForm/AddItemForm";
+import { EdiatableSpan } from "./EdiatableSpan/EdaiatableSpan";
 
 export type TaskType = {
   id: string;
@@ -14,7 +15,7 @@ export type TodoPropsType = {
   title: string;
   tasks: Array<TaskType>;
   //   tasks: TaskType[] === tasks: Array<TaskType> одинаковая запись !!
-  removeTasks: (id: string, todolistId: string) => void;
+  removeTasks: (taskId: string, todolistId: string) => void;
   changeFilter: (value: FilterValuesType, todolistId: string) => void;
   addTask: (title: string, todolistId: string) => void;
   changeTaskStatus: (
@@ -22,13 +23,18 @@ export type TodoPropsType = {
     isDone: boolean,
     todolistId: string
   ) => void;
+  changeTaskTitle: (id: string, newTitle: string, todolistId: string) => void;
   filter: FilterValuesType;
   removeTodo: (todolistId: string) => void;
+  changeTodoTitle: (id: string, newTitle: string) => void;
 };
 
 export const Todo = (props: TodoPropsType) => {
   const removeTodo = () => {
     props.removeTodo(props.id);
+  };
+  const changeTodoTitle = (newTitle: string) => {
+    props.changeTodoTitle(props.id, newTitle);
   };
 
   const onAllClickHandler = () => props.changeFilter("all", props.id);
@@ -45,7 +51,7 @@ export const Todo = (props: TodoPropsType) => {
   return (
     <div className="todo">
       <h3 className="text-center">
-        {props.title}
+        <EdiatableSpan title={props.title} onChange={changeTodoTitle} />
         <button className="pl-2 pr-2" onClick={removeTodo}>
           X
         </button>
@@ -57,8 +63,11 @@ export const Todo = (props: TodoPropsType) => {
             props.removeTasks(t.id, props.id);
           };
 
-          const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+          const onChangeStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
             props.changeTaskStatus(t.id, e.currentTarget.checked, props.id);
+          };
+          const onChangeTitleHandler = (newValue: string) => {
+            props.changeTaskTitle(t.id, newValue, props.id);
           };
 
           return (
@@ -66,9 +75,10 @@ export const Todo = (props: TodoPropsType) => {
               <input
                 type="checkbox"
                 checked={t.isDone}
-                onChange={onChangeHandler}
+                onChange={onChangeStatusHandler}
               />
-              <span>{t.title}</span>
+
+              <EdiatableSpan title={t.title} onChange={onChangeTitleHandler} />
               <button className="ml-4" onClick={onRemoveHandler}>
                 <img src={Trash} alt="" />
               </button>
