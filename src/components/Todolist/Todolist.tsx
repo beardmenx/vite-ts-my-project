@@ -1,8 +1,13 @@
 import { useState } from "react";
-import { Todo } from "./Todo/Todo";
+import { TaskType, Todo } from "./Todo/Todo";
 import { v1 } from "uuid";
+import { AddItemForm } from "./Todo/AddItemForm/AddItemForm";
 
 export type FilterValuesType = "all" | "active" | "completed";
+
+export type TasksStateType = {
+  [key: string]: Array<TaskType>;
+};
 
 export type TodolistType = {
   id: string;
@@ -15,11 +20,11 @@ export const Todolist = () => {
   let todolistId2 = v1();
 
   let [todolists, setTodolists] = useState<Array<TodolistType>>([
-    { id: todolistId1, title: "What to learn", filter: "active" },
-    { id: todolistId2, title: "What to buy", filter: "completed" },
+    { id: todolistId1, title: "What to learn", filter: "all" },
+    { id: todolistId2, title: "What to buy", filter: "all" },
   ]);
 
-  let [tasksObj, setTasks] = useState({
+  let [tasksObj, setTasks] = useState<TasksStateType>({
     [todolistId1]: [
       { id: v1(), title: "HTML&CSS", isDone: true },
       { id: v1(), title: "JS", isDone: true },
@@ -73,9 +78,23 @@ export const Todolist = () => {
     }
   }
 
+  function addTodo(title: string) {
+    let todolist: TodolistType = {
+      id: v1(),
+      filter: "all",
+      title: title,
+    };
+    setTodolists([todolist, ...todolists]);
+    setTasks({
+      ...tasksObj,
+      [todolist.id]: [],
+    });
+  }
+
   return (
     <>
       <h1 className="text-2xl mb-4">Todolist</h1>
+      <AddItemForm addItem={addTodo} />
       <div className="flex gap-8">
         {todolists.map((tl) => {
           let tasksForTodolist = tasksObj[tl.id];

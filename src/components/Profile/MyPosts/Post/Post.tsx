@@ -1,10 +1,11 @@
 import s from "./Post.module.css";
 import User from "../../../../assets/photo.png";
 import Like from "../../../../assets/like.svg";
-// import Dislike from "../../../../assets/dislike.svg";
+import Dislike from "../../../../assets/dislike.svg";
 // import Comment from "../../../../assets/comment.svg";
 // import Share from "../../../../assets/share.svg";
 import Delete from "../../../../assets/trash.svg";
+import { useState } from "react";
 
 export type PostProps = {
   id: string;
@@ -17,6 +18,9 @@ export const Post = (props: PostProps) => {
   const removePost = () => {
     props.removePost(props.id);
   };
+
+  let [likeCount, setLikeCount] = useState(0);
+  let [disslikeCount, setDisslikeCount] = useState(0);
 
   return (
     <div className={s.post}>
@@ -34,11 +38,23 @@ export const Post = (props: PostProps) => {
           className="flex justify-around
         pb-2"
         >
-          <button onClick={() => {}}>
+          <button
+            onClick={() => {
+              setLikeCount(likeCount + 1);
+            }}
+          >
             <img src={Like} alt="" />
           </button>
-          <span>{props.likesCount}</span>
 
+          <span className="text-center">{likeCount}</span>
+          <button
+            onClick={() => {
+              setDisslikeCount(disslikeCount - 1);
+            }}
+          >
+            <img src={Dislike} alt="" />
+          </button>
+          <span>{disslikeCount}</span>
           <button onClick={removePost}>
             <img src={Delete} alt="" />
           </button>

@@ -1,6 +1,7 @@
-import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { ChangeEvent } from "react";
 import { FilterValuesType } from "../Todolist";
 import Trash from "../../../assets/trash.svg";
+import { AddItemForm } from "./AddItemForm/AddItemForm";
 
 export type TaskType = {
   id: string;
@@ -26,29 +27,6 @@ export type TodoPropsType = {
 };
 
 export const Todo = (props: TodoPropsType) => {
-  const [title, setTitle] = useState("");
-  const [error, setError] = useState<string | null>(null);
-
-  const onNewTitleChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.currentTarget.value);
-  };
-
-  const onKeyUpHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-    setError(null);
-    if (e.key === "Enter") {
-      addTask();
-    }
-  };
-
-  const addTask = () => {
-    if (title.trim() !== "") {
-      props.addTask(title.trim(), props.id);
-      setTitle("");
-    } else {
-      setError("Field is not required");
-    }
-  };
-
   const removeTodo = () => {
     props.removeTodo(props.id);
   };
@@ -60,6 +38,10 @@ export const Todo = (props: TodoPropsType) => {
   const onCompletedClickHandler = () =>
     props.changeFilter("completed", props.id);
 
+  const addTask = (title: string) => {
+    props.addTask(title, props.id);
+  };
+
   return (
     <div className="todo">
       <h3 className="text-center">
@@ -68,18 +50,7 @@ export const Todo = (props: TodoPropsType) => {
           X
         </button>
       </h3>
-      <div className="mb-6">
-        <input
-          className={error ? "error" : ""}
-          value={title}
-          onChange={onNewTitleChangeHandler}
-          onKeyUp={onKeyUpHandler}
-        />
-        <button className="pl-3 pr-3" onClick={addTask}>
-          +
-        </button>
-        {error && <div className="errorMessage">{error}</div>}
-      </div>
+      <AddItemForm addItem={addTask} />
       <ul>
         {props.tasks.map((t) => {
           const onRemoveHandler = () => {
