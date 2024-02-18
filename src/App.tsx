@@ -8,6 +8,7 @@ import { News } from "./components/News/News";
 import { Books } from "./components/Books/Books";
 import { Settings } from "./components/Settings/Settings";
 import { Todolist } from "./components/Todolist/Todolist";
+import { EnglishCard } from "./components/EnglishCard/EnglishCard";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/books" element={<Books />} />
           <Route path="/todolist" element={<Todolist />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/englishCard" element={<EnglishCard />} />
         </Routes>
       </div>
     </div>

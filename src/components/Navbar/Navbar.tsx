@@ -53,6 +53,14 @@ export const Navbar = () => {
           Settings
         </NavLink>
       </div>
+      <div className={s.item}>
+        <NavLink
+          to="/englishCard"
+          className={(navData) => (navData.isActive ? s.active : "")}
+        >
+          English Card
+        </NavLink>
+      </div>
     </nav>
   );
 };
