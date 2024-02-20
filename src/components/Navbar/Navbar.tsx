@@ -1,66 +1,27 @@
 export type NavbarProps = {};
-import { NavLink } from "react-router-dom";
-import s from "./Navbar.module.css";
 
-export const Navbar = () => {
+import s from "./Navbar.module.css";
+import {ButtonsNavBar} from "../../UI/buttons/buttonsNavBar/ButtonsNavBar";
+import { memo } from "react";
+
+const listLink = [
+  {title:"Profile", to:"/profile"},
+  {title:"Messages", to:"/dialogs"},
+  {title:"News", to:"/news"},
+  {title:"Books", to:"/books"},
+  {title:"Todolist", to:"/todolist"},
+  {title:"Settings", to:"/settings"},
+  {title:"English Card", to:"/englishCard"},
+]
+
+// По хорошему нам с сервера должны приходить ссылки которые мы будем рендерить(могут быть приветные пути для 
+// админа) , а есть для простого юзера. Ну и плюс нет хард-кода!
+
+export const Navbar = memo( () => {
   return (
     <nav className={s.nav}>
-      <div className={s.item}>
-        <NavLink
-          to="/profile"
-          className={(navData) => (navData.isActive ? s.active : "")}
-        >
-          Profile
-        </NavLink>
-      </div>
-      <div className={s.item}>
-        <NavLink
-          to="/dialogs"
-          className={(navData) => (navData.isActive ? s.active : "")}
-        >
-          Messages
-        </NavLink>
-      </div>
-      <div className={s.item}>
-        <NavLink
-          to="/news"
-          className={(navData) => (navData.isActive ? s.active : "")}
-        >
-          News
-        </NavLink>
-      </div>
-      <div className={s.item}>
-        <NavLink
-          to="/books"
-          className={(navData) => (navData.isActive ? s.active : "")}
-        >
-          Books
-        </NavLink>
-      </div>
-      <div className={s.item}>
-        <NavLink
-          to="/todolist"
-          className={(navData) => (navData.isActive ? s.active : "")}
-        >
-          Todolist
-        </NavLink>
-      </div>
-      <div className={s.item}>
-        <NavLink
-          to="/settings"
-          className={(navData) => (navData.isActive ? s.active : "")}
-        >
-          Settings
-        </NavLink>
-      </div>
-      <div className={s.item}>
-        <NavLink
-          to="/englishCard"
-          className={(navData) => (navData.isActive ? s.active : "")}
-        >
-          English Card
-        </NavLink>
-      </div>
+      {listLink.map(link => <ButtonsNavBar key={link.title} title={link.title} to={link.to} />)}
+     
     </nav>
   );
-};
+})

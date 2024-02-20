@@ -2,7 +2,8 @@
   grid-area: n;
 }
 
-.item {
+/* .item {
+  display: block;
   padding: 4px;
   border-radius: 1px;
   background: var(--Gray, #b8b8b8);
@@ -20,6 +21,6 @@
     2px 2px 1px 0px rgba(0, 0, 0, 0.8) inset;
 }
 
-.item .active {
+.active {
   color: chartreuse;
-}
+} */
