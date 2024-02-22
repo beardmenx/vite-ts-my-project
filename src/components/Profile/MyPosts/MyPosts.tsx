@@ -5,6 +5,7 @@ import Location from "../../../assets/location.svg";
 // import Delete from "../../../assets/trash.svg";
 import User from "../../../assets/photo.png";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { Button } from "../../../UI/buttons/Button/Button";
 
 export type MyPostsType = {
   id: string;
@@ -64,6 +65,7 @@ export const MyPosts = (props: MyPostsPropsType) => {
               <button className={s.btn} onClick={addPost}>
                 Add post
               </button>
+              <Button>1</Button>
             </div>
           </div>
         </div>
