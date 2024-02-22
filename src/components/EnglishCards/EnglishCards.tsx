@@ -4,6 +4,8 @@ import { Card } from "./Card/Card";
 import { Modal } from "../Modal/Modal";
 import { v1 } from "uuid";
 import { EnglishCardList } from "./EnglishCardList/EnglishCardList";
+import { Button } from "../../UI/buttons/Button/Button";
+import { CategoriesEnglishCards } from "./CategoriesEnglishCards/CategoriesEnglishCards";
 
 export type EnglishCardProps = {};
 
@@ -40,7 +42,7 @@ export const EnglishCards = () => {
 
   return (
     <div>
-      <h2 className="text-center text-4xl uppercase">Ready Cards</h2>
+      <h2 className="text-center text-4xl uppercase">Ready Flashcards</h2>
       <EnglishCardList englishCards={englishCards} />
 
       <div className={s.section}>
@@ -57,9 +59,8 @@ export const EnglishCards = () => {
           <button className="pl-4 pr-4 text-lg">Submit</button>
         </form>
       </Modal>
+
+      <CategoriesEnglishCards />
     </div>
   );
 };
-
-{
-}
