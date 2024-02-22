@@ -59,13 +59,12 @@ export const MyPosts = (props: MyPostsPropsType) => {
               ></textarea>
             </div>
             <div className={s.postBtnWrapper}>
-              <button>
+              <Button>
                 <img src={Location} alt="" />
-              </button>
+              </Button>
               <button className={s.btn} onClick={addPost}>
                 Add post
               </button>
-              <Button>1</Button>
             </div>
           </div>
         </div>

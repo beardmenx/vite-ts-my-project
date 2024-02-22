@@ -6,6 +6,7 @@ import Dislike from "../../../../assets/dislike.svg";
 // import Share from "../../../../assets/share.svg";
 import Delete from "../../../../assets/trash.svg";
 import { useState } from "react";
+import { Button } from "../../../../UI/buttons/Button/Button";
 
 export type PostProps = {
   id: string;
@@ -38,26 +39,26 @@ export const Post = (props: PostProps) => {
           className="flex justify-around
         pb-2"
         >
-          <button
+          <Button
             onClick={() => {
               setLikeCount(likeCount + 1);
             }}
           >
             <img src={Like} alt="" />
-          </button>
+          </Button>
 
           <span className="text-center">{likeCount}</span>
-          <button
+          <Button
             onClick={() => {
               setDisslikeCount(disslikeCount - 1);
             }}
           >
             <img src={Dislike} alt="" />
-          </button>
+          </Button>
           <span>{disslikeCount}</span>
-          <button onClick={removePost}>
+          <Button onClick={removePost}>
             <img src={Delete} alt="" />
-          </button>
+          </Button>
         </div>
       </div>
     </div>
