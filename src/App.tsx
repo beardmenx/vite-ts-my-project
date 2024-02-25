@@ -4,11 +4,12 @@ import { Dialogs } from "./components/Dialogs/Dialogs";
 import { Header } from "./components/Header/Header";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Profile } from "./components/Profile/Profile";
-import { News } from "./components/News/News";
 import { Books } from "./components/Books/Books";
 import { Settings } from "./components/Settings/Settings";
 import { Todolist } from "./components/Todolist/Todolist";
-import { EnglishCard } from "./components/EnglishCard/EnglishCard";
+import { News } from "./components/News/News";
+import { English } from "./components/EnglishCards/English";
+import EnglishCardItemPage from "./pages/EnglishCardItemPage";
 
 const App = () => {
   return (
@@ -20,11 +21,12 @@ const App = () => {
           <Route path="/dialogs/*" element={<Dialogs />} />
           <Route path="/profile" element={<Profile />} />
 
-          <Route path="/news" element={<News />} />
+          <Route path="" element={<News />} />  
           <Route path="/books" element={<Books />} />
           <Route path="/todolist" element={<Todolist />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/englishCard" element={<EnglishCard />} />
+          <Route path="/english" element={<English />} />
+          <Route path="/english/:title" element={<EnglishCardItemPage />} />
         </Routes>
       </div>
     </div>

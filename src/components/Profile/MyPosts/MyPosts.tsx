@@ -5,6 +5,7 @@ import Location from "../../../assets/location.svg";
 // import Delete from "../../../assets/trash.svg";
 import User from "../../../assets/photo.png";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { Button } from "../../../UI/buttons/Button/Button";
 
 export type MyPostsType = {
   id: string;
@@ -58,9 +59,9 @@ export const MyPosts = (props: MyPostsPropsType) => {
               ></textarea>
             </div>
             <div className={s.postBtnWrapper}>
-              <button>
+              <Button>
                 <img src={Location} alt="" />
-              </button>
+              </Button>
               <button className={s.btn} onClick={addPost}>
                 Add post
               </button>

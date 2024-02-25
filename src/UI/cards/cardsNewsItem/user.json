@@ -1,0 +1,38 @@
+[{
+   "id": 1,
+   "firstName": "Vetal9I",
+   "LastName": "Kbr",
+   "tag": "vetalChess07",
+   "email": "vetalChess07gamil.com",
+   "phone": "79285673212",
+   "avatar": "https://tankionline.com/ru/wp-content/uploads/2022/02/5.jpg",
+   "about":{
+     "country": "Россия",
+     "sity":"Москва",
+     "dateRrgistration": "12 июня 2023",
+     "dateOfBirth": "5 августа 2005"
+   }
+
+   
+ },
+ 
+ {
+   "id": 2,
+   "firstName": "Ivan",
+   "LastName": "Gromov",
+   "tag": "grom",
+   "email": "Gromovgamil.com",
+   "phone": "79289893421",
+   "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Zunge_raus.JPG/300px-Zunge_raus.JPG",
+   "about":{
+     "country": "Казахстан",
+     "sity":"Село какое-то",
+     "dateRrgistration": "22 июня 2023",
+     "dateOfBirth": "9 августа 2005"
+   }
+   
+ }]
+
+ 
+  
+ 
