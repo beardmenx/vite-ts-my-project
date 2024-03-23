@@ -1,4 +1,11 @@
 .header {
-  grid-area: h;
+  display: flex;
+  justify-content: space-between;
   border-bottom: 2px solid black;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+
+  background: #b8b8b8;
+  padding: 10px;
 }

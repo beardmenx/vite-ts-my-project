@@ -8,8 +8,8 @@
   box-shadow:
     -2px -2px 1px 0px rgba(0, 0, 0, 0.8) inset,
     2px 2px 1px 0px rgba(255, 255, 255, 0.5) inset;
-  height: 100px;
-  width: 280px;
+  height: 80px;
+  width: 230px;
   transform-style: preserve-3d;
   transition: 250ms;
   cursor: pointer;

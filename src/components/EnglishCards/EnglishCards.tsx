@@ -1,66 +1,36 @@
-import { useState } from "react";
-import s from "./EnglishCards.module.css";
-import { Card } from "./Card/Card";
-import { Modal } from "../Modal/Modal";
-import { v1 } from "uuid";
-import { EnglishCardList } from "./EnglishCardList/EnglishCardList";
-import { Button } from "../../UI/buttons/Button/Button";
-import { CategoriesEnglishCards } from "./CategoriesEnglishCards/CategoriesEnglishCards";
+import { useState } from 'react';
+import s from './EnglishCards.module.css';
+import { Modal } from '../Modal/Modal';
+import { Button } from '../../UI/buttons/Button/Button';
+import { EnglishCategoryCard } from './EnglishCategoryCard/EnglishCategoryCard';
+import { v1 } from 'uuid';
 
 export type EnglishCardProps = {};
 
 export const EnglishCards = () => {
   const [active, setActive] = useState(false);
-  const EnglishCardData = [
-    {
-      id: v1(),
-      text: "CPU - central processing unit",
-      translate: "главный процессор",
-    },
-    {
-      id: v1(),
-      text: "www (worldwide web)",
-      translate: "всемирная сеть",
-    },
-    { id: v1(), text: "GPU", translate: "графический процессор" },
-    {
-      id: v1(),
-      text: "desktop computer",
-      translate: "настольный компьютер, стационарный компьютер",
-    },
-    { id: v1(), text: "computer", translate: "компьютер" },
-    { id: v1(), text: "hardware ", translate: "аппаратное обеспечение" },
-    { id: v1(), text: "Hz - hertz", translate: "Гц - Герц" },
-    { id: v1(), text: "keyboard", translate: "клавиатура" },
-    { id: v1(), text: "keyboard", translate: "клавиатура" },
-    { id: v1(), text: "keyboard", translate: "клавиатура" },
-    { id: v1(), text: "keyboard", translate: "клавиатура" },
-    { id: v1(), text: "keyboard", translate: "клавиатура" },
-  ];
-
-  const [englishCards, setEnglishCards] = useState(EnglishCardData);
 
   return (
     <div>
-      <h2 className="text-center text-4xl uppercase">Ready Flashcards</h2>
-      <EnglishCardList englishCards={englishCards} />
-
-      <div className={s.section}>
-        <button className={s.btn} onClick={() => setActive(true)}>
-          + create your own card
-        </button>
+      <div>
+        <EnglishCategoryCard id={v1()} title={'Computer '} />
       </div>
+
+      <Button
+        appearence='big'
+        className={s.btn}
+        onClick={() => setActive(true)}
+      >
+        + create your category
+      </Button>
 
       <Modal active={active} setActive={setActive}>
         <form className={s.form}>
-          <input className={s.input} type="text" placeholder=" Add text" />
-          <input className={s.input} type="text" placeholder="Add translate" />
-          <input className={s.inputFile} type="file" />
-          <button className="pl-4 pr-4 text-lg">Submit</button>
+          <input className={s.input} type='text' placeholder=' Add title' />
+          <input className={s.inputFile} type='file' />
+          <button className='pl-4 pr-4 text-lg'>Submit</button>
         </form>
       </Modal>
-
-      <CategoriesEnglishCards />
     </div>
   );
 };

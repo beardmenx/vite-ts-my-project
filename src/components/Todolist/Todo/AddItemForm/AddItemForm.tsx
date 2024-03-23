@@ -1,11 +1,13 @@
-import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from 'react';
+import { Button } from '../../../../UI/buttons/Button/Button';
+import s from '../../Todolist.module.css';
 
 export type AddItemFromPropsType = {
   addItem: (title: string) => void;
 };
 
 export function AddItemForm(props: AddItemFromPropsType) {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
   const [error, setError] = useState<string | null>(null);
 
   const onNewTitleChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -14,32 +16,31 @@ export function AddItemForm(props: AddItemFromPropsType) {
 
   const onKeyUpHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     setError(null);
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       addTask();
     }
   };
 
   const addTask = () => {
-    if (title.trim() !== "") {
+    if (title.trim() !== '') {
       props.addItem(title.trim());
-      setTitle("");
+      setTitle('');
     } else {
-      setError("Field is not required");
+      setError('Field is not required');
     }
   };
 
   return (
-    <div className="mb-6">
+    <div className='mb-6'>
       <input
-        className={error ? "error" : ""}
+        className={error ? s['error'] : s['input']}
+        placeholder='add task'
         value={title}
         onChange={onNewTitleChangeHandler}
         onKeyUp={onKeyUpHandler}
       />
-      <button className="pl-3 pr-3" onClick={addTask}>
-        +
-      </button>
-      {error && <div className="errorMessage">{error}</div>}
+      <Button onClick={addTask}>+</Button>
+      {error && <div className={s['errorMessage']}>{error}</div>}
     </div>
   );
 }

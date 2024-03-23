@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { TaskType, Todo } from "./Todo/Todo";
-import { v1 } from "uuid";
-import { AddItemForm } from "./Todo/AddItemForm/AddItemForm";
+import { useState } from 'react';
+import { TaskType, Todo } from './Todo/Todo';
+import { v1 } from 'uuid';
+import { AddItemForm } from './Todo/AddItemForm/AddItemForm';
+import s from './Todolist.module.css';
 
-export type FilterValuesType = "all" | "active" | "completed";
+export type FilterValuesType = 'all' | 'active' | 'completed';
 
 export type TasksStateType = {
   [key: string]: Array<TaskType>;
@@ -20,22 +21,22 @@ export const Todolist = () => {
   let todolistId2 = v1();
 
   let [todolists, setTodolists] = useState<Array<TodolistType>>([
-    { id: todolistId1, title: "What to learn", filter: "all" },
-    { id: todolistId2, title: "What to buy", filter: "all" },
+    { id: todolistId1, title: 'What to learn', filter: 'all' },
+    { id: todolistId2, title: 'What to buy', filter: 'all' },
   ]);
 
   let [tasksObj, setTasks] = useState<TasksStateType>({
     [todolistId1]: [
-      { id: v1(), title: "HTML&CSS", isDone: true },
-      { id: v1(), title: "JS", isDone: true },
-      { id: v1(), title: "React", isDone: false },
-      { id: v1(), title: "Redux", isDone: false },
-      { id: v1(), title: "Rest API", isDone: false },
-      { id: v1(), title: "GraphQl", isDone: false },
+      { id: v1(), title: 'HTML&CSS', isDone: true },
+      { id: v1(), title: 'JS', isDone: true },
+      { id: v1(), title: 'React', isDone: false },
+      { id: v1(), title: 'Redux', isDone: false },
+      { id: v1(), title: 'Rest API', isDone: false },
+      { id: v1(), title: 'GraphQl', isDone: false },
     ],
     [todolistId2]: [
-      { id: v1(), title: "Book", isDone: true },
-      { id: v1(), title: "Milk", isDone: true },
+      { id: v1(), title: 'Book', isDone: true },
+      { id: v1(), title: 'Milk', isDone: true },
     ],
   });
 
@@ -101,7 +102,7 @@ export const Todolist = () => {
   function addTodo(title: string) {
     let todolist: TodolistType = {
       id: v1(),
-      filter: "all",
+      filter: 'all',
       title: title,
     };
     setTodolists([todolist, ...todolists]);
@@ -112,17 +113,17 @@ export const Todolist = () => {
   }
 
   return (
-    <>
-      <h1 className="text-2xl mb-4">Todolist</h1>
+    <div className={s.todolistWrapper}>
+      <h1 className='text-2xl mb-4'>Todolist</h1>
       <AddItemForm addItem={addTodo} />
-      <div className="flex gap-8">
+      <div className='flex gap-8'>
         {todolists.map((tl) => {
           let tasksForTodolist = tasksObj[tl.id];
-          if (tl.filter === "completed") {
+          if (tl.filter === 'completed') {
             tasksForTodolist = tasksForTodolist.filter(
               (t) => t.isDone === true
             );
-          } else if (tl.filter === "active") {
+          } else if (tl.filter === 'active') {
             tasksForTodolist = tasksForTodolist.filter(
               (t) => t.isDone === false
             );
@@ -145,6 +146,6 @@ export const Todolist = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };

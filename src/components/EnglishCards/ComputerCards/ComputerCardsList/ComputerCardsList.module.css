@@ -5,10 +5,9 @@
 }
 
 .btn {
+  display: block;
   margin: 0 auto;
-  padding: 20px 10px;
-  height: 60px;
-  width: 300px;
+  padding: 20px;
   font-size: 24px;
 }
 
@@ -46,7 +45,7 @@
 
 .englishCardList {
   display: grid;
-  align-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 250px);
   gap: 10px;
+  margin-bottom: 40px;
 }

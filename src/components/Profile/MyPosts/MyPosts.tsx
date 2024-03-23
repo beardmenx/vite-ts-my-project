@@ -1,11 +1,9 @@
-import s from "./MyPosts.module.css";
-import { Post } from "./Post/Post";
-import Location from "../../../assets/location.svg";
-// import Time from "../../../assets/time.svg";
-// import Delete from "../../../assets/trash.svg";
-import User from "../../../assets/photo.png";
-import { ChangeEvent, KeyboardEvent, useState } from "react";
-import { Button } from "../../../UI/buttons/Button/Button";
+import s from './MyPosts.module.css';
+import { Post } from './Post/Post';
+import Location from '../../../assets/location.svg';
+import User from '../../../assets/photo.png';
+import { ChangeEvent, KeyboardEvent, useState } from 'react';
+import { Button } from '../../../UI/buttons/Button/Button';
 
 export type MyPostsType = {
   id: string;
@@ -20,22 +18,22 @@ export type MyPostsPropsType = {
 };
 
 export const MyPosts = (props: MyPostsPropsType) => {
-  const [newPostText, setNewPostText] = useState("");
+  const [newPostText, setNewPostText] = useState('');
 
   const onChangeTextareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setNewPostText(e.currentTarget.value);
   };
 
   const onKeyUpHandler = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.ctrlKey && e.key === "Enter") {
+    if (e.ctrlKey && e.key === 'Enter') {
       props.addPost(newPostText);
-      setNewPostText("");
+      setNewPostText('');
     }
   };
 
   const addPost = () => {
     props.addPost(newPostText);
-    setNewPostText("");
+    setNewPostText('');
   };
 
   return (
@@ -45,26 +43,26 @@ export const MyPosts = (props: MyPostsPropsType) => {
 
         <div className={s.postInner}>
           <div className={s.userAvatar}>
-            <img src={User} alt="" />
+            <img src={User} alt='' />
           </div>
 
           <div>
             <div>
               <textarea
                 className={s.postTextarea}
-                placeholder="What’s happening?"
+                placeholder='What’s happening?'
                 value={newPostText}
                 onChange={onChangeTextareaHandler}
                 onKeyUp={onKeyUpHandler}
               ></textarea>
             </div>
-            <div className={s.postBtnWrapper}>
+            <div className='flex justify-between'>
               <Button>
-                <img src={Location} alt="" />
+                <img src={Location} alt='logo' />
               </Button>
-              <button className={s.btn} onClick={addPost}>
+              <Button className={s.btn} appearence='big' onClick={addPost}>
                 Add post
-              </button>
+              </Button>
             </div>
           </div>
         </div>

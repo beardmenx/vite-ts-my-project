@@ -1,8 +1,11 @@
-import { ChangeEvent } from "react";
-import { FilterValuesType } from "../Todolist";
-import Trash from "../../../assets/trash.svg";
-import { AddItemForm } from "./AddItemForm/AddItemForm";
-import { EdiatableSpan } from "./EdiatableSpan/EdaiatableSpan";
+import { ChangeEvent } from 'react';
+import { FilterValuesType } from '../Todolist';
+import Trash from '../../../assets/trash.svg';
+import { AddItemForm } from './AddItemForm/AddItemForm';
+import { EdiatableSpan } from './EdiatableSpan/EdaiatableSpan';
+import { Button } from '../../../UI/buttons/Button/Button';
+import Delete from '../../../assets/trash.svg';
+import s from '../Todolist.module.css';
 
 export type TaskType = {
   id: string;
@@ -37,25 +40,25 @@ export const Todo = (props: TodoPropsType) => {
     props.changeTodoTitle(props.id, newTitle);
   };
 
-  const onAllClickHandler = () => props.changeFilter("all", props.id);
+  const onAllClickHandler = () => props.changeFilter('all', props.id);
 
-  const onActiveClickHandler = () => props.changeFilter("active", props.id);
+  const onActiveClickHandler = () => props.changeFilter('active', props.id);
 
   const onCompletedClickHandler = () =>
-    props.changeFilter("completed", props.id);
+    props.changeFilter('completed', props.id);
 
   const addTask = (title: string) => {
     props.addTask(title, props.id);
   };
 
   return (
-    <div className="todo">
-      <h3 className="text-center">
+    <div className={s.todo}>
+      <div className='text-center'>
         <EdiatableSpan title={props.title} onChange={changeTodoTitle} />
-        <button className="pl-2 pr-2" onClick={removeTodo}>
-          X
-        </button>
-      </h3>
+        <Button onClick={removeTodo}>
+          <img src={Delete} alt='' />
+        </Button>
+      </div>
       <AddItemForm addItem={addTask} />
       <ul>
         {props.tasks.map((t) => {
@@ -71,46 +74,43 @@ export const Todo = (props: TodoPropsType) => {
           };
 
           return (
-            <li className={t.isDone ? "isDone mb-3" : "mb-3"} key={t.id}>
+            <li className={t.isDone ? 'isDone mb-3' : 'mb-3'} key={t.id}>
               <input
-                type="checkbox"
+                type='checkbox'
                 checked={t.isDone}
                 onChange={onChangeStatusHandler}
               />
 
               <EdiatableSpan title={t.title} onChange={onChangeTitleHandler} />
-              <button className="ml-4" onClick={onRemoveHandler}>
-                <img src={Trash} alt="" />
-              </button>
+              <Button onClick={onRemoveHandler}>
+                <img src={Trash} alt='' />
+              </Button>
             </li>
           );
         })}
       </ul>
-      <div className="flex justify-around mt-4">
-        <button
-          className={
-            props.filter === "all" ? "activeBtn pl-2 pr-2" : " pl-2 pr-2"
-          }
+      <div className='flex justify-around mt-4'>
+        <Button
+          appearence='big'
+          className={props.filter === 'all' ? `${s.active}` : ''}
           onClick={onAllClickHandler}
         >
           All
-        </button>
-        <button
-          className={
-            props.filter === "active" ? "activeBtn pl-2 pr-2" : " pl-2 pr-2"
-          }
+        </Button>
+        <Button
+          appearence='big'
+          className={props.filter === 'active' ? `${s.active}` : ''}
           onClick={onActiveClickHandler}
         >
           Active
-        </button>
-        <button
-          className={
-            props.filter === "completed" ? "activeBtn pl-2 pr-2" : " pl-2 pr-2"
-          }
+        </Button>
+        <Button
+          appearence='big'
+          className={props.filter === 'completed' ? `${s.active}` : ''}
           onClick={onCompletedClickHandler}
         >
           Completed
-        </button>
+        </Button>
       </div>
     </div>
   );

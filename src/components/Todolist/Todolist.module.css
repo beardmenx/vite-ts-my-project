@@ -1,0 +1,48 @@
+.todo {
+  width: 300px;
+  padding: 20px 10px;
+  border-radius: 1px;
+  background: #b8b8b8;
+  box-shadow:
+    -2px -2px 1px 0px rgba(0, 0, 0, 0.8) inset,
+    2px 2px 1px 0px rgba(255, 255, 255, 0.5) inset;
+}
+
+.input {
+  margin: 10px 0;
+  padding: 6px;
+}
+
+.input::placeholder {
+  font-size: 22px;
+}
+
+.error {
+  margin: 10px 0;
+  padding: 6px;
+  border: 1px solid red;
+}
+.errorMessage {
+  color: red;
+}
+
+.isDone {
+  opacity: 0.5;
+}
+
+.active {
+  border-radius: 1px;
+  background: #e1e1e1;
+  box-shadow:
+    -2px -2px 1px 0px rgba(255, 255, 255, 0.8) inset,
+    2px 2px 1px 0px rgba(0, 0, 0, 0.8) inset;
+}
+
+.todolistWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.span {
+  margin-right: 10px;
+}

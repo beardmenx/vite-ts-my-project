@@ -1,5 +1,5 @@
-import { Card } from "../Card/Card";
-import s from "../EnglishCards.module.css";
+import s from './ComputerCardsList.module.css';
+import { Card } from './Card/Card';
 
 export type EnglishCardListPropsType = {
   id: string;
@@ -7,7 +7,7 @@ export type EnglishCardListPropsType = {
   translate: string;
 };
 
-export const EnglishCardList = ({
+export const ComputerCardsList = ({
   englishCards,
 }: {
   englishCards: Array<EnglishCardListPropsType>;

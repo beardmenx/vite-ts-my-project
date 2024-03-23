@@ -1,20 +1,20 @@
-import { useState } from "react";
-import { MyPosts } from "./MyPosts/MyPosts";
-import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
-import { v1 } from "uuid";
+import { useState } from 'react';
+import { MyPosts } from './MyPosts/MyPosts';
+import { ProfileInfo } from './ProfileInfo/ProfileInfo';
+import { v1 } from 'uuid';
 
 export const Profile = () => {
   let [post, setPost] = useState([
     {
       id: v1(),
       message:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet habitant mollis adipiscing pretium scelerisque urna euismod nec nullam.",
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet habitant mollis adipiscing pretium scelerisque urna euismod nec nullam.',
       likesCount: 12,
     },
     {
       id: v1(),
       message:
-        "Amet habitant mollis adipiscing pretium scelerisque urna euismod nec nullam.",
+        'Amet habitant mollis adipiscing pretium scelerisque urna euismod nec nullam.',
       likesCount: 24,
     },
   ]);
@@ -33,9 +33,9 @@ export const Profile = () => {
   removePost;
 
   return (
-    <>
+    <div className='flex flex-col'>
       <ProfileInfo />
       <MyPosts posts={post} removePost={removePost} addPost={addPost} />
-    </>
+    </div>
   );
 };

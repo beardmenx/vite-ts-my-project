@@ -1,4 +1,5 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from 'react';
+import s from '../../Todolist.module.css';
 
 export type EdiatableSpanPropsType = {
   title: string;
@@ -7,7 +8,7 @@ export type EdiatableSpanPropsType = {
 
 export function EdiatableSpan(props: EdiatableSpanPropsType) {
   const [editMode, setEditMode] = useState(false);
-  let [title, setTitle] = useState("");
+  let [title, setTitle] = useState('');
 
   const activatedEditMode = () => {
     setEditMode(true);
@@ -27,6 +28,8 @@ export function EdiatableSpan(props: EdiatableSpanPropsType) {
       autoFocus
     />
   ) : (
-    <span onDoubleClick={activatedEditMode}>{props.title}</span>
+    <span className={s['span']} onDoubleClick={activatedEditMode}>
+      {props.title}
+    </span>
   );
 }

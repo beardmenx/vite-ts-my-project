@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  font-family: "VT323", monospace;
+  font-family: 'VT323', monospace;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -15,8 +15,8 @@ body {
 .app-wrapper {
   display: grid;
   grid-template-areas:
-    "h h"
-    "n c";
+    'h h'
+    'n c';
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   gap: 10px;
@@ -37,32 +37,3 @@ button {
 
 /* 
 ================== Todolist ===================== */
-
-.todo {
-  width: 300px;
-  padding: 20px 10px;
-  border-radius: 1px;
-  background: var(--Gray, #b8b8b8);
-  box-shadow:
-    -2px -2px 1px 0px rgba(0, 0, 0, 0.8) inset,
-    2px 2px 1px 0px rgba(255, 255, 255, 0.5) inset;
-}
-
-.error {
-  border: 1px solid red;
-}
-.errorMessage {
-  color: red;
-}
-
-.activeBtn {
-  border-radius: 1px;
-  background: #e1e1e1;
-  box-shadow:
-    -2px -2px 1px 0px rgba(255, 255, 255, 0.8) inset,
-    2px 2px 1px 0px rgba(0, 0, 0, 0.8) inset;
-}
-
-.isDone {
-  opacity: 0.5;
-}

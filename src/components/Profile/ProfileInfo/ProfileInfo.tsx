@@ -1,14 +1,12 @@
-import ContentImg from "../../../assets/content-img.gif";
-import s from "./ProfileInfo.module.css";
+import ContentImg from '../../../assets/content-img.gif';
+import s from './ProfileInfo.module.css';
 
 export type ProfileInfoProps = {};
 
 export const ProfileInfo = () => {
   return (
     <>
-      <div>
-        <img className={s.contentImg} src={ContentImg} alt="" />
-      </div>
+      <div></div>
       <div>ava + description</div>
     </>
   );
